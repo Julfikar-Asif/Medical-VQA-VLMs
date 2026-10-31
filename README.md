@@ -190,7 +190,7 @@ In the LLaVA-Med error case the attention sits on the on-screen "EPIDIDYMIS" lab
 **Limitations:** one small dataset (4,500 / 500); a 5-epoch QLoRA schedule on a single T4; grounding scores calibrated separately per model family, so they are not on one shared scale; severe train/validation shift (113 of 233 unique validation answer classes appear only once in training); the fixed 330-class vocabulary creates an out-of-vocabulary failure mode the LVLMs do not share.
 
 **Future work:**
- 
+
 **Stronger models with more compute.** This study ran on a single 16 GB T4 GPU, which limited the work to 4-bit quantized 7B models, a 5-epoch schedule and a small vision-token budget (64-128 tokens per image). With better GPU access, the same pipeline can be repeated with larger and newer vision-language models, higher-precision fine-tuning, longer training and higher-resolution image inputs.
 
 Repeat the study on VQA-RAD and SLAKE; explore hybrids that use a grounded classifier prediction as a retrieval or verification signal for a generative model.
@@ -228,7 +228,7 @@ Run each notebook top to bottom. Training saves the best checkpoint, evaluation 
 
 ## Thesis slides 
 
-- Defense slides: [`presentation/Defense_slide.pptx`] (presentation/Defense_slide.pptx)
+- Defense slides: [`presentation/Defense_slide.pptx`](presentation/Defense_slide.pptx)
 
 
 ## Citation and license
