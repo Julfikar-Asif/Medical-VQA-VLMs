@@ -189,20 +189,23 @@ In the LLaVA-Med error case the attention sits on the on-screen "EPIDIDYMIS" lab
 
 **Limitations:** one small dataset (4,500 / 500); a 5-epoch QLoRA schedule on a single T4; grounding scores calibrated separately per model family, so they are not on one shared scale; severe train/validation shift (113 of 233 unique validation answer classes appear only once in training); the fixed 330-class vocabulary creates an out-of-vocabulary failure mode the LVLMs do not share.
 
-**Future work:** repeat the study on VQA-RAD and SLAKE; explore hybrids that use a grounded classifier prediction as a retrieval or verification signal for a generative model.
+**Future work:**
+ 
+**Stronger models with more compute.** This study ran on a single 16 GB T4 GPU, which limited the work to 4-bit quantized 7B models, a 5-epoch schedule and a small vision-token budget (64-128 tokens per image). With better GPU access, the same pipeline can be repeated with larger and newer vision-language models, higher-precision fine-tuning, longer training and higher-resolution image inputs.
+
+Repeat the study on VQA-RAD and SLAKE; explore hybrids that use a grounded classifier prediction as a retrieval or verification signal for a generative model.
 
 ## Repository layout and how to run
 
 ```
 notebooks/
-  01_biomedclip_mlp.ipynb      # train + eval + occlusion XAI
-  02_pubmedclip_mlp.ipynb      # train + eval + occlusion XAI
-  03_qwen25vl_qlora.ipynb      # train + eval
-  03b_qwen25vl_xai.ipynb       # attention-based hallucination analysis
-  04_llava_med_qlora.ipynb     # train + eval
-  04b_llava_med_xai.ipynb      # attention-based hallucination analysis
+  01. biomedclip.ipynb      # train + eval + occlusion XAI
+  02. pubmedclip.ipynb      # train + eval + occlusion XAI
+  03. qwen2-5-vl-7b.ipynb       # train + eval + attention-based hallucination analysis
+  04. llava_med.ipynb     # train + eval + attention-based hallucination analysis
+  
 figures/                       # all figures used in this README
-docs/                          # thesis PDF and defense slides (if cleared for release)
+presentation/                          # thesis defense slides 
 requirements.txt
 ```
 
@@ -223,11 +226,10 @@ requirements.txt
 ### Reproducing
 Run each notebook top to bottom. Training saves the best checkpoint, evaluation writes a metrics CSV, and the XAI step reads that CSV plus the saved adapter to produce taxonomy labels and overlays. For the LVLM XAI notebooks, point `EVAL_CSV` and `ADAPTER_DIR` / `ADAPTER_PATH` at your own outputs.
 
-## Thesis, slides and weights
+## Thesis slides 
 
-- Thesis (PDF): `docs/222004812_Thesis_Report.pdf` _(add only if your university allows public release)_
-- Defense slides: `docs/Defense_Presentation.pptx` _(add your file)_
-- Trained LoRA adapters: Hugging Face Hub _(add link)_
+- Defense slides: [`presentation/Defense_slide.pptx`] (presentation/Defense_slide.pptx)
+
 
 ## Citation and license
 
@@ -242,4 +244,5 @@ Run each notebook top to bottom. Training saves the best checkpoint, evaluation 
 
 Code is released under the MIT License (see `LICENSE`). The VQA-Med 2021 dataset and the pretrained models (BiomedCLIP, PubMedCLIP, Qwen2.5-VL, LLaVA-Med) keep their own licenses.
 
-**Acknowledgments:** ImageCLEF VQA-Med 2021 organizers; the BiomedCLIP, PubMedCLIP, Qwen2.5-VL and LLaVA-Med teams; OpenCLIP, PyTorch, Hugging Face Transformers and PEFT.
+**Acknowledgments:** I would like to express my deepest gratitude to my supervisor, Tanvir Azhar for his invaluable suggestions and unwavering support. His guidance, insights, and encouragement were indispensable to the accomplishment of this research.
+This work would not have been possible without the contributions of the open-source community.
