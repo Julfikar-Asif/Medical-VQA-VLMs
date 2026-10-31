@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# Model weights / checkpoints (host on Hugging Face Hub instead)
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+checkpoint_epoch*/
+best_model.pt
+adapters/
+
+# Dataset (VQA-Med 2021 has its own access terms; do not redistribute)
+data/
+*.zip
+
+# Generated outputs (keep only hand-picked figures in figures/)
+outputs/
+*_xai_outputs/
+*_metrics.csv
+*_xai_*.csv
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
