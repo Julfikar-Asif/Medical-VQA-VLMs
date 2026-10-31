@@ -1,0 +1,16 @@
+# Inferred from the notebook imports; versions are minimums, not pinned.
+# Run `pip freeze` in your Kaggle session and pin exact versions before release.
+torch>=2.1
+torchvision>=0.16
+transformers>=4.49      # Qwen2_5_VLForConditionalGeneration, LlavaForConditionalGeneration
+peft>=0.10
+bitsandbytes>=0.43      # 4-bit NF4 QLoRA + PagedAdamW8bit
+accelerate>=0.30        # needed for device_map="auto"
+open_clip_torch>=2.24   # BiomedCLIP
+nltk>=3.8               # BLEU
+pandas
+numpy
+pillow
+opencv-python
+matplotlib
+tqdm
