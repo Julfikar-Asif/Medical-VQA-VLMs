@@ -1,7 +1,7 @@
 # Medical VQA: CLIP-Based Classifiers vs. Vision-Language Models, with Explainability-Driven Hallucination Assessment
 
-**Undergraduate thesis (B.Sc. in Computer Science & Engineering), East Delta University, 2026**
-Author: Julfikar Rahaman Asif · Supervisor: Tanvir Azhar, Assistant Professor
+**Undergraduate thesis (B.Sc. in Computer Science & Engineering), East Delta University, 2026
+Author: Julfikar Rahaman Asif · Supervisor: Tanvir Azhar, Assistant Professor , School of Science, Engineering and Technology East Delta University **
 
 > Do medical VQA models answer correctly **for the right reasons**? This project fine-tunes four models on VQA-Med 2021 and checks, for every single prediction, whether the answer is actually grounded in the image.
 
