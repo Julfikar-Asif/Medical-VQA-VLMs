@@ -5,7 +5,7 @@ Author: Julfikar Rahaman Asif · Supervisor: Tanvir Azhar, Assistant Professor
 
 > Do medical VQA models answer correctly **for the right reasons**? This project fine-tunes four models on VQA-Med 2021 and checks, for every single prediction, whether the answer is actually grounded in the image.
 
-![Methodology overview](figures/01_methodology_overview.png)
+
 
 ## Contents
 1. [Summary](#summary)
@@ -61,6 +61,8 @@ Dataset challenges that cap achievable accuracy for every model:
 ## Methodology
 
 **Workflow (per model):** load data and preprocess, inject LoRA/QLoRA adapters, fine-tune on the 4,500-sample training split, evaluate on the 500-sample validation split, then run XAI on every validation prediction and assign a taxonomy label. Answer normalization (lower-casing, punctuation stripping, synonym parsing) is identical across all four pipelines.
+
+![Methodology overview](figures/01_methodology_overview.png)
 
 ### Models
 
